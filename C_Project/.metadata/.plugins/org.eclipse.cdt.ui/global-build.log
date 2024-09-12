@@ -1,0 +1,162 @@
+18:33:14 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+src\StudentManagementSystem.o: In function `main':
+D:\Skills\Embedded\Tarek\Lecs\2. C Programming & Data Structure\Project\StudentManagementSystem\Debug/../src/StudentManagementSystem.c:103: undefined reference to `saveStudentsToFile'
+collect2.exe: error: ld returned 1 exit status
+18:33:57 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+src\StudentManagementSystem.o: In function `main':
+D:\Skills\Embedded\Tarek\Lecs\2. C Programming & Data Structure\Project\StudentManagementSystem\Debug/../src/StudentManagementSystem.c:103: undefined reference to `saveStudentsToFile'
+collect2.exe: error: ld returned 1 exit status
+18:34:57 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+..\src\StudentManagementSystem.c: In function 'main':
+..\src\StudentManagementSystem.c:101:4: warning: implicit declaration of function 'saveStudentsToFile'; did you mean 'saveStudentData'? [-Wimplicit-function-declaration]
+    saveStudentsToFile();
+    ^~~~~~~~~~~~~~~~~~
+    saveStudentData
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+src\StudentManagementSystem.o: In function `main':
+D:\Skills\Embedded\Tarek\Lecs\2. C Programming & Data Structure\Project\StudentManagementSystem\Debug/../src/StudentManagementSystem.c:101: undefined reference to `saveStudentsToFile'
+collect2.exe: error: ld returned 1 exit status
+18:36:24 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+18:47:06 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+18:51:25 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+19:00:12 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+19:02:33 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+19:07:37 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+19:08:48 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+19:09:10 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+19:09:33 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+19:24:27 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+19:38:20 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+01:18:42 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+Info: Nothing to build for StudentManagementSystem
+01:20:06 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+..\src\StudentManagementSystem.c: In function 'main':
+..\src\StudentManagementSystem.c:61:9: error: incomplete universal character name \U
+  printf("\n\t\t\t\t\tc:\Users\Tarek\ \"==>I AM AT YOUR COMMAND<==\"\n\n");
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\StudentManagementSystem.c:61:9: warning: unknown escape sequence: '\T'
+..\src\StudentManagementSystem.c:61:9: warning: unknown escape sequence: '\040'
+01:20:17 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+..\src\StudentManagementSystem.c: In function 'main':
+..\src\StudentManagementSystem.c:61:9: error: incomplete universal character name \U
+  printf("\n\t\t\t\t\tc:\Users\Tarek\ \"==>I AM AT YOUR COMMAND<==\"\n\n");
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\StudentManagementSystem.c:61:9: warning: unknown escape sequence: '\T'
+..\src\StudentManagementSystem.c:61:9: warning: unknown escape sequence: '\040'
+01:20:32 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+..\src\StudentManagementSystem.c: In function 'main':
+..\src\StudentManagementSystem.c:61:9: warning: unknown escape sequence: '\040'
+  printf("\n\t\t\t\t\tc:\\Users\\Tarek\ \"==>I AM AT YOUR COMMAND<==\"\n\n");
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+01:21:38 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+..\src\StudentManagementSystem.c: In function 'main':
+..\src\StudentManagementSystem.c:61:9: warning: unknown escape sequence: '\040'
+  printf("\n\t\t\t\t\tc:\\Users\\Tarek\ \"==>I AM AT YOUR COMMAND<==\"\n\n");
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+Info: Nothing to build for StudentManagementSystem
+Info: Nothing to build for StudentManagementSystem
+01:23:00 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file StudentManagementSystem.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+01:23:22 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+Info: Nothing to build for StudentManagementSystem
+01:23:52 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file StudentManagementSystem.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+01:23:59 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+Info: Nothing to build for StudentManagementSystem
+01:24:28 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+..\src\StudentManagementSystem.c: In function 'main':
+..\src\StudentManagementSystem.c:61:9: warning: unknown escape sequence: '\>'
+  printf("\n\t\t\t\tc:\\Users\>I AM AT YOUR COMMAND\n\n");
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+01:24:36 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+Info: Nothing to build for StudentManagementSystem
+01:24:51 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file StudentManagementSystem.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+01:24:59 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+Info: Nothing to build for StudentManagementSystem
+01:25:55 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+01:26:39 **** Incremental Build of configuration Debug for project StudentManagementSystem ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\StudentManagementSystem.o" "..\\src\\StudentManagementSystem.c" 
+gcc -o StudentManagementSystem.exe "src\\StudentManagementSystem.o" 
+Info: Nothing to build for StudentManagementSystem
+Info: Nothing to build for StudentManagementSystem
