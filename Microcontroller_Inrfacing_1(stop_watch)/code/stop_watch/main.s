@@ -34,79 +34,11 @@ __vector_7:
 	push r0
 	clr __zero_reg__
 	push r24
-	push r25
 /* prologue: Signal */
 /* frame size = 0 */
-	lds r24,mode
-	tst r24
-	brne .L4
-	lds r24,seconds
-	subi r24,lo8(-(1))
-	sts seconds,r24
-	cpi r24,lo8(60)
-	brne .L5
-	sts seconds,__zero_reg__
-	lds r24,minutes
-	subi r24,lo8(-(1))
-	sts minutes,r24
-.L5:
-	lds r24,minutes
-	cpi r24,lo8(60)
-	brne .L6
-	sts minutes,__zero_reg__
-	lds r24,hours
-	subi r24,lo8(-(1))
-	sts hours,r24
-.L6:
-	lds r24,hours
-	cpi r24,lo8(24)
-	brne .L7
-	sts hours,__zero_reg__
-	rjmp .L7
-.L4:
-	cpi r24,lo8(1)
-	brne .L7
-	lds r24,seconds
-	tst r24
-	brne .L8
-	lds r25,minutes
-	tst r25
-	breq .L9
-	ldi r24,lo8(59)
-	sts seconds,r24
-	subi r25,lo8(-(-1))
-	sts minutes,r25
-	rjmp .L7
-.L9:
-	lds r25,hours
-	tst r25
-	breq .L7
-	ldi r24,lo8(59)
-	sts seconds,r24
-	sts minutes,r24
-	subi r25,lo8(-(-1))
-	sts hours,r25
-	rjmp .L7
-.L8:
-	subi r24,lo8(-(-1))
-	sts seconds,r24
-.L7:
-	lds r24,hours
-	tst r24
-	brne .L10
-	lds r24,minutes
-	tst r24
-	brne .L10
-	lds r24,seconds
-	tst r24
-	brne .L10
-	sbi 50-32,0
-	rjmp .L12
-.L10:
-	cbi 50-32,0
-.L12:
+	ldi r24,lo8(1)
+	sts timer_flag,r24
 /* epilogue start */
-	pop r25
 	pop r24
 	pop r0
 	out __SREG__,r0
@@ -114,36 +46,81 @@ __vector_7:
 	pop __zero_reg__
 	reti
 	.size	__vector_7, .-__vector_7
-.global	handle_parameters
-	.type	handle_parameters, @function
-handle_parameters:
+.global	time_count_up
+	.type	time_count_up, @function
+time_count_up:
 /* prologue: function */
 /* frame size = 0 */
-	lds r18,seconds
-	mov r24,r18
-	ldi r22,lo8(10)
-	call __udivmodqi4
-	sts seconds_units,r25
-	mov r24,r18
-	call __udivmodqi4
-	sts seconds_tenth,r24
-	lds r18,minutes
-	mov r24,r18
-	call __udivmodqi4
-	sts minutes_units,r25
-	mov r24,r18
-	call __udivmodqi4
-	sts minutes_tenth,r24
-	lds r18,hours
-	mov r24,r18
-	call __udivmodqi4
-	sts hours_units,r25
-	mov r24,r18
-	call __udivmodqi4
-	sts hours_tenth,r24
-/* epilogue start */
+	lds r24,seconds
+	subi r24,lo8(-(1))
+	sts seconds,r24
+	cpi r24,lo8(60)
+	brne .L6
+	sts seconds,__zero_reg__
+	lds r24,minutes
+	subi r24,lo8(-(1))
+	sts minutes,r24
+.L6:
+	lds r24,minutes
+	cpi r24,lo8(60)
+	brne .L7
+	sts minutes,__zero_reg__
+	lds r24,hours
+	subi r24,lo8(-(1))
+	sts hours,r24
+.L7:
+	lds r24,hours
+	cpi r24,lo8(24)
+	brne .L9
+	sts hours,__zero_reg__
+.L9:
 	ret
-	.size	handle_parameters, .-handle_parameters
+	.size	time_count_up, .-time_count_up
+.global	time_count_down
+	.type	time_count_down, @function
+time_count_down:
+/* prologue: function */
+/* frame size = 0 */
+	lds r24,seconds
+	tst r24
+	brne .L11
+	lds r25,minutes
+	tst r25
+	breq .L12
+	ldi r24,lo8(59)
+	sts seconds,r24
+	subi r25,lo8(-(-1))
+	sts minutes,r25
+	rjmp .L13
+.L12:
+	lds r25,hours
+	tst r25
+	breq .L13
+	ldi r24,lo8(59)
+	sts seconds,r24
+	sts minutes,r24
+	subi r25,lo8(-(-1))
+	sts hours,r25
+	rjmp .L13
+.L11:
+	subi r24,lo8(-(-1))
+	sts seconds,r24
+.L13:
+	lds r24,hours
+	tst r24
+	brne .L14
+	lds r24,minutes
+	tst r24
+	brne .L14
+	lds r24,seconds
+	tst r24
+	brne .L14
+	sbi 50-32,0
+	ret
+.L14:
+	cbi 50-32,0
+	ret
+	.size	time_count_down, .-time_count_down
 .global	init_io
 	.type	init_io, @function
 init_io:
@@ -173,18 +150,21 @@ init_io:
 display_on_segment:
 /* prologue: function */
 /* frame size = 0 */
-	call handle_parameters
+	lds r19,seconds
+	lds r30,minutes
+	lds r31,hours
 	ldi r24,lo8(32)
 	out 59-32,r24
-	in r25,53-32
-	lds r24,seconds_units
-	andi r24,lo8(15)
-	andi r25,lo8(-16)
-	or r24,r25
-	out 53-32,r24
-	ldi r18,lo8(500)
-	ldi r19,hi8(500)
-	movw r24,r18
+	in r18,53-32
+	mov r24,r19
+	ldi r22,lo8(10)
+	call __udivmodqi4
+	andi r18,lo8(-16)
+	or r18,r25
+	out 53-32,r18
+	ldi r20,lo8(250)
+	ldi r21,hi8(250)
+	movw r24,r20
 /* #APP */
  ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
 	1: sbiw r24,1
@@ -193,13 +173,14 @@ display_on_segment:
 /* #NOAPP */
 	ldi r24,lo8(16)
 	out 59-32,r24
-	in r25,53-32
-	lds r24,seconds_tenth
+	in r18,53-32
+	mov r24,r19
+	call __udivmodqi4
 	andi r24,lo8(15)
-	andi r25,lo8(-16)
-	or r24,r25
+	andi r18,lo8(-16)
+	or r24,r18
 	out 53-32,r24
-	movw r24,r18
+	movw r24,r20
 /* #APP */
  ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
 	1: sbiw r24,1
@@ -208,13 +189,14 @@ display_on_segment:
 /* #NOAPP */
 	ldi r24,lo8(8)
 	out 59-32,r24
-	in r25,53-32
-	lds r24,minutes_units
-	andi r24,lo8(15)
-	andi r25,lo8(-16)
-	or r24,r25
-	out 53-32,r24
-	movw r24,r18
+	in r18,53-32
+	mov r24,r30
+	call __udivmodqi4
+	andi r25,lo8(15)
+	andi r18,lo8(-16)
+	or r25,r18
+	out 53-32,r25
+	movw r24,r20
 /* #APP */
  ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
 	1: sbiw r24,1
@@ -223,13 +205,14 @@ display_on_segment:
 /* #NOAPP */
 	ldi r24,lo8(4)
 	out 59-32,r24
-	in r25,53-32
-	lds r24,minutes_tenth
+	in r18,53-32
+	mov r24,r30
+	call __udivmodqi4
 	andi r24,lo8(15)
-	andi r25,lo8(-16)
-	or r24,r25
+	andi r18,lo8(-16)
+	or r24,r18
 	out 53-32,r24
-	movw r24,r18
+	movw r24,r20
 /* #APP */
  ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
 	1: sbiw r24,1
@@ -238,13 +221,14 @@ display_on_segment:
 /* #NOAPP */
 	ldi r24,lo8(2)
 	out 59-32,r24
-	in r25,53-32
-	lds r24,hours_units
-	andi r24,lo8(15)
-	andi r25,lo8(-16)
-	or r24,r25
-	out 53-32,r24
-	movw r24,r18
+	in r18,53-32
+	mov r24,r31
+	call __udivmodqi4
+	andi r25,lo8(15)
+	andi r18,lo8(-16)
+	or r25,r18
+	out 53-32,r25
+	movw r24,r20
 /* #APP */
  ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
 	1: sbiw r24,1
@@ -253,13 +237,14 @@ display_on_segment:
 /* #NOAPP */
 	ldi r24,lo8(1)
 	out 59-32,r24
-	in r25,53-32
-	lds r24,hours_tenth
+	in r18,53-32
+	mov r24,r31
+	call __udivmodqi4
 	andi r24,lo8(15)
-	andi r25,lo8(-16)
-	or r24,r25
+	andi r18,lo8(-16)
+	or r24,r18
 	out 53-32,r24
-	movw r24,r18
+	movw r24,r20
 /* #APP */
  ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
 	1: sbiw r24,1
@@ -276,30 +261,31 @@ check_mode:
 /* frame size = 0 */
 	lds r24,mode
 	tst r24
-	brne .L20
+	brne .L22
 	sbi 50-32,4
 	cbi 50-32,5
-	rjmp .L21
-.L20:
+	cbi 50-32,0
+	rjmp .L23
+.L22:
 	cpi r24,lo8(1)
-	brne .L21
+	brne .L23
 	sbi 50-32,5
 	cbi 50-32,4
-.L21:
+.L23:
 	sbic 54-32,7
-	rjmp .L26
+	rjmp .L28
 	sts mode,__zero_reg__
 	tst r24
-	brne .L27
+	brne .L29
 	ldi r24,lo8(1)
 	sts mode,r24
-	rjmp .L27
-.L25:
-	call display_on_segment
+	rjmp .L29
 .L27:
+	call display_on_segment
+.L29:
 	sbis 54-32,7
-	rjmp .L25
-.L26:
+	rjmp .L27
+.L28:
 	ret
 	.size	check_mode, .-check_mode
 .global	INT0_init
@@ -331,12 +317,6 @@ __vector_1:
 	sts seconds,__zero_reg__
 	sts minutes,__zero_reg__
 	sts hours,__zero_reg__
-	sts seconds_units,__zero_reg__
-	sts seconds_tenth,__zero_reg__
-	sts minutes_units,__zero_reg__
-	sts minutes_tenth,__zero_reg__
-	sts hours_units,__zero_reg__
-	sts hours_tenth,__zero_reg__
 /* epilogue start */
 	pop r0
 	out __SREG__,r0
@@ -422,89 +402,89 @@ handle_adjustment_buttons:
 /* prologue: function */
 /* frame size = 0 */
 	sbic 54-32,1
-	rjmp .L41
+	rjmp .L43
 	lds r24,hours
 	cpi r24,lo8(24)
-	brsh .L60
-	subi r24,lo8(-(1))
-	sts hours,r24
-	rjmp .L60
-.L43:
-	call display_on_segment
-.L60:
-	sbis 54-32,1
-	rjmp .L43
-.L41:
-	sbic 54-32,0
-	rjmp .L44
-	lds r24,hours
-	tst r24
-	breq .L61
-	subi r24,lo8(-(-1))
-	sts hours,r24
-	rjmp .L61
-.L46:
-	call display_on_segment
-.L61:
-	sbis 54-32,0
-	rjmp .L46
-.L44:
-	sbic 54-32,4
-	rjmp .L47
-	lds r24,minutes
-	cpi r24,lo8(60)
 	brsh .L62
 	subi r24,lo8(-(1))
-	sts minutes,r24
+	sts hours,r24
 	rjmp .L62
-.L49:
+.L45:
 	call display_on_segment
 .L62:
-	sbis 54-32,4
-	rjmp .L49
-.L47:
-	sbic 54-32,3
-	rjmp .L50
-	lds r24,minutes
+	sbis 54-32,1
+	rjmp .L45
+.L43:
+	sbic 54-32,0
+	rjmp .L46
+	lds r24,hours
 	tst r24
 	breq .L63
 	subi r24,lo8(-(-1))
-	sts minutes,r24
+	sts hours,r24
 	rjmp .L63
-.L52:
+.L48:
 	call display_on_segment
 .L63:
-	sbis 54-32,3
-	rjmp .L52
-.L50:
-	sbic 54-32,6
-	rjmp .L53
-	lds r24,seconds
+	sbis 54-32,0
+	rjmp .L48
+.L46:
+	sbic 54-32,4
+	rjmp .L49
+	lds r24,minutes
 	cpi r24,lo8(60)
 	brsh .L64
 	subi r24,lo8(-(1))
-	sts seconds,r24
+	sts minutes,r24
 	rjmp .L64
-.L55:
+.L51:
 	call display_on_segment
 .L64:
-	sbis 54-32,6
-	rjmp .L55
-.L53:
-	sbic 54-32,5
-	rjmp .L59
-	lds r24,seconds
+	sbis 54-32,4
+	rjmp .L51
+.L49:
+	sbic 54-32,3
+	rjmp .L52
+	lds r24,minutes
 	tst r24
 	breq .L65
 	subi r24,lo8(-(-1))
-	sts seconds,r24
+	sts minutes,r24
 	rjmp .L65
-.L58:
+.L54:
 	call display_on_segment
 .L65:
+	sbis 54-32,3
+	rjmp .L54
+.L52:
+	sbic 54-32,6
+	rjmp .L55
+	lds r24,seconds
+	cpi r24,lo8(60)
+	brsh .L66
+	subi r24,lo8(-(1))
+	sts seconds,r24
+	rjmp .L66
+.L57:
+	call display_on_segment
+.L66:
+	sbis 54-32,6
+	rjmp .L57
+.L55:
+	sbic 54-32,5
+	rjmp .L61
+	lds r24,seconds
+	tst r24
+	breq .L67
+	subi r24,lo8(-(-1))
+	sts seconds,r24
+	rjmp .L67
+.L60:
+	call display_on_segment
+.L67:
 	sbis 54-32,5
-	rjmp .L58
-.L59:
+	rjmp .L60
+.L61:
 	ret
 	.size	handle_adjustment_buttons, .-handle_adjustment_buttons
 .global	main
@@ -540,11 +520,23 @@ main:
 	in r24,91-32
 	ori r24,lo8(32)
 	out 91-32,r24
-.L67:
-	call check_mode
+.L71:
+	lds r24,timer_flag
+	tst r24
+	breq .L69
+	sts timer_flag,__zero_reg__
+	lds r24,mode
+	tst r24
+	brne .L70
+	call time_count_up
+	rjmp .L69
+.L70:
+	call time_count_down
+.L69:
 	call display_on_segment
+	call check_mode
 	call handle_adjustment_buttons
-	rjmp .L67
+	rjmp .L71
 	.size	main, .-main
 .global	seconds
 .global	seconds
@@ -565,46 +557,16 @@ minutes:
 	.size	hours, 1
 hours:
 	.skip 1,0
-.global	seconds_units
-.global	seconds_units
-	.type	seconds_units, @object
-	.size	seconds_units, 1
-seconds_units:
-	.skip 1,0
-.global	seconds_tenth
-.global	seconds_tenth
-	.type	seconds_tenth, @object
-	.size	seconds_tenth, 1
-seconds_tenth:
-	.skip 1,0
-.global	minutes_units
-.global	minutes_units
-	.type	minutes_units, @object
-	.size	minutes_units, 1
-minutes_units:
-	.skip 1,0
-.global	minutes_tenth
-.global	minutes_tenth
-	.type	minutes_tenth, @object
-	.size	minutes_tenth, 1
-minutes_tenth:
-	.skip 1,0
-.global	hours_units
-.global	hours_units
-	.type	hours_units, @object
-	.size	hours_units, 1
-hours_units:
-	.skip 1,0
-.global	hours_tenth
-.global	hours_tenth
-	.type	hours_tenth, @object
-	.size	hours_tenth, 1
-hours_tenth:
-	.skip 1,0
 .global	mode
 .global	mode
 	.type	mode, @object
 	.size	mode, 1
 mode:
+	.skip 1,0
+.global	timer_flag
+.global	timer_flag
+	.type	timer_flag, @object
+	.size	timer_flag, 1
+timer_flag:
 	.skip 1,0
 .global __do_clear_bss

@@ -144,7 +144,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1894
+.text           0x00000000     0x18c6
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -248,60 +248,63 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000a94                __fpcmp_parts_f
                 0x00000b46                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x00000b46       0x38 ./main.o
+ .text.main     0x00000b46       0x56 ./main.o
                 0x00000b46                main
  .text.TIMER1_COMP_init
-                0x00000b7e       0x38 ./main.o
-                0x00000b7e                TIMER1_COMP_init
+                0x00000b9c       0x38 ./main.o
+                0x00000b9c                TIMER1_COMP_init
  .text.__vector_7
-                0x00000bb6      0x112 ./main.o
-                0x00000bb6                __vector_7
+                0x00000bd4       0x2a ./main.o
+                0x00000bd4                __vector_7
+ .text.time_count_up
+                0x00000bfe       0x50 ./main.o
+                0x00000bfe                time_count_up
+ .text.time_count_down
+                0x00000c4e       0x98 ./main.o
+                0x00000c4e                time_count_down
  .text.check_mode
-                0x00000cc8       0x8a ./main.o
-                0x00000cc8                check_mode
- .text.handle_parameters
-                0x00000d52       0x74 ./main.o
-                0x00000d52                handle_parameters
- .text.init_io  0x00000dc6       0x62 ./main.o
-                0x00000dc6                init_io
+                0x00000ce6       0x98 ./main.o
+                0x00000ce6                check_mode
+ .text.init_io  0x00000d7e       0x62 ./main.o
+                0x00000d7e                init_io
  .text.display_on_segment
-                0x00000e28      0x6f6 ./main.o
-                0x00000e28                display_on_segment
+                0x00000de0      0x788 ./main.o
+                0x00000de0                display_on_segment
  .text.INT0_init
-                0x0000151e       0x38 ./main.o
-                0x0000151e                INT0_init
+                0x00001568       0x38 ./main.o
+                0x00001568                INT0_init
  .text.__vector_1
-                0x00001556       0x66 ./main.o
-                0x00001556                __vector_1
+                0x000015a0       0x4e ./main.o
+                0x000015a0                __vector_1
  .text.INT1_init
-                0x000015bc       0x2a ./main.o
-                0x000015bc                INT1_init
+                0x000015ee       0x2a ./main.o
+                0x000015ee                INT1_init
  .text.__vector_2
-                0x000015e6       0x42 ./main.o
-                0x000015e6                __vector_2
+                0x00001618       0x42 ./main.o
+                0x00001618                __vector_2
  .text.INT2_init
-                0x00001628       0x2a ./main.o
-                0x00001628                INT2_init
+                0x0000165a       0x2a ./main.o
+                0x0000165a                INT2_init
  .text.__vector_3
-                0x00001652       0x42 ./main.o
-                0x00001652                __vector_3
+                0x00001684       0x42 ./main.o
+                0x00001684                __vector_3
  .text.handle_adjustment_buttons
-                0x00001694      0x176 ./main.o
-                0x00001694                handle_adjustment_buttons
- .text.libgcc   0x0000180a       0x18 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
-                0x0000180a                __udivmodqi4
- .text.libgcc   0x00001822        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00001822        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00001822       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00001822                __prologue_saves__
- .text.libgcc   0x0000185a       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x0000185a                __epilogue_restores__
- .text.libgcc   0x00001890        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                0x00001890                . = ALIGN (0x2)
+                0x000016c6      0x176 ./main.o
+                0x000016c6                handle_adjustment_buttons
+ .text.libgcc   0x0000183c       0x18 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+                0x0000183c                __udivmodqi4
+ .text.libgcc   0x00001854        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001854        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00001854       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00001854                __prologue_saves__
+ .text.libgcc   0x0000188c       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x0000188c                __epilogue_restores__
+ .text.libgcc   0x000018c2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x000018c2                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001890        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00001890                exit
-                0x00001890                _exit
+ .fini9         0x000018c2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000018c2                exit
+                0x000018c2                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -320,11 +323,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001890        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000018c2        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001894                _etext = .
+                0x000018c6                _etext = .
 
-.data           0x00800060        0x8 load address 0x00001894
+.data           0x00800060        0x8 load address 0x000018c6
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -355,7 +358,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00800068                _edata = .
                 0x00800068                PROVIDE (__data_end, .)
 
-.bss            0x00800068        0xa
+.bss            0x00800068        0x5
                 0x00800068                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800068        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -384,37 +387,22 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00800069                minutes
  .bss.hours     0x0080006a        0x1 ./main.o
                 0x0080006a                hours
- .bss.seconds_units
-                0x0080006b        0x1 ./main.o
-                0x0080006b                seconds_units
- .bss.seconds_tenth
+ .bss.mode      0x0080006b        0x1 ./main.o
+                0x0080006b                mode
+ .bss.timer_flag
                 0x0080006c        0x1 ./main.o
-                0x0080006c                seconds_tenth
- .bss.minutes_units
-                0x0080006d        0x1 ./main.o
-                0x0080006d                minutes_units
- .bss.minutes_tenth
-                0x0080006e        0x1 ./main.o
-                0x0080006e                minutes_tenth
- .bss.hours_units
-                0x0080006f        0x1 ./main.o
-                0x0080006f                hours_units
- .bss.hours_tenth
-                0x00800070        0x1 ./main.o
-                0x00800070                hours_tenth
- .bss.mode      0x00800071        0x1 ./main.o
-                0x00800071                mode
+                0x0080006c                timer_flag
  *(COMMON)
-                0x00800072                PROVIDE (__bss_end, .)
-                0x00001894                __data_load_start = LOADADDR (.data)
-                0x0000189c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080006d                PROVIDE (__bss_end, .)
+                0x000018c6                __data_load_start = LOADADDR (.data)
+                0x000018ce                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800072        0x0
-                0x00800072                PROVIDE (__noinit_start, .)
+.noinit         0x0080006d        0x0
+                0x0080006d                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800072                PROVIDE (__noinit_end, .)
-                0x00800072                _end = .
-                0x00800072                PROVIDE (__heap_start, .)
+                0x0080006d                PROVIDE (__noinit_end, .)
+                0x0080006d                _end = .
+                0x0080006d                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -432,13 +420,13 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000      0xec4
+.stab           0x00000000      0xf3c
  *(.stab)
- .stab          0x00000000      0xec4 ./main.o
+ .stab          0x00000000      0xf3c ./main.o
 
-.stabstr        0x00000000      0x8db
+.stabstr        0x00000000      0x8fc
  *(.stabstr)
- .stabstr       0x00000000      0x8db ./main.o
+ .stabstr       0x00000000      0x8fc ./main.o
 
 .stab.excl
  *(.stab.excl)
