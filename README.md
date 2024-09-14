@@ -29,10 +29,10 @@ A C language project designed to manage student data using a linked list data st
 ## Project 2: Stopwatch Using ATmega32 Microcontroller ⏱️
 
 ### Description
-A dual-mode stopwatch built with the ATmega32 microcontroller, featuring six multiplexed seven-segment displays. The stopwatch supports both increment and countdown modes.
+A dual-mode stopwatch built with the ATmega32 microcontroller, featuring six multiplexed seven-segment displays. The stopwatch supports both countup and countdown modes.
 
 ### Key Features
-- **Increment Mode** ⏫: Counts upwards, displaying hours, minutes, and seconds.
+- **Countup Mode** ⏫: Counts upwards, displaying hours, minutes, and seconds.
 - **Countdown Mode** ⏳: Allows users to set a countdown timer with an alarm buzzer that sounds when the timer reaches zero.
 
 ### Control Functions
@@ -54,10 +54,10 @@ A dual-mode stopwatch built with the ATmega32 microcontroller, featuring six mul
 
 ### Hardware
 - **Microcontroller**: ATmega32 running at 16MHz.
-- **Display**: Six multiplexed seven-segment displays controlled by a 7447 BCD decoder and NPN transistors.
+- **Display**: Six multiplexed seven-segment displays controlled by a 7447 BCD decoder.
 - **Input**: 10 push buttons for various functions including reset, pause, resume, and time adjustments.
 - **Alarm/Buzzer** 🔔: Sounds when the countdown timer reaches zero.
-- **LED Indicators**: Red LED (PD4) for Increment Mode, Yellow LED (PD5) for Countdown Mode.
+- **LED Indicators**: Red LED (PD4) for Countup Mode, Yellow LED (PD5) for Countdown Mode.
 
 ### Technical Highlights
 - **Multiplexing**: Efficiently controls six seven-segment displays using PORTA pins and a 7447 decoder.
