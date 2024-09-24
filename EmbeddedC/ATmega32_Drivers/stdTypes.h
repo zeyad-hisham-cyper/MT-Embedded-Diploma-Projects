@@ -34,7 +34,6 @@
  * These typedefs define the standard integer and floating point data types
  * for AVR microcontrollers and embedded systems.
  *----------------------------------------------------------------------------*/
-
 /* Boolean type: typically used for flags */
 typedef unsigned char boolean;  /* 1 byte, used to store TRUE (1) or FALSE (0) */
 
@@ -86,4 +85,4 @@ typedef volatile signed long vsint32;     /* Volatile signed 32-bit integer */
 typedef volatile unsigned long long vuint64; /* Volatile unsigned 64-bit integer */
 typedef volatile signed long long vsint64;   /* Volatile signed 64-bit integer */
 
-#endif /* STDTYPES_H */
+#endif
