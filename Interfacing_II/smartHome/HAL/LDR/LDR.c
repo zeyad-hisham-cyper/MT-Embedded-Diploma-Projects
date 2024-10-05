@@ -1,14 +1,21 @@
 /*
- * LDR.c
+ * Module: LDR
  *
- *  Created on: Oct 4, 2024
- *      Author: zeyad
+ * File Name: LDR.c
+ *
+ * Created on: Oct 4, 2024
+ *
+ * Author: Zeyad Hisham
  */
 
 #include "LDR.h"
 #include "../../MCAL/ADC/ADC.h"
 
+/* Define LDR Sensor Channel */
+
 LDR LDR_sensor = 0;
+
+/* Function to calculate and return the Light Intensity */
 uint8 LDR_getLightIntensity(LDR LDR_Channel)
 {
 

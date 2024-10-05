@@ -3,7 +3,7 @@
  <FRAME activewindow="0">
   <PLACEMENT>2c00000002000000030000000083ffff0083ffffffffffffffffffffb00000000c000000d0060000fc030000</PLACEMENT>
   <WINDOW type="default" module="ISIS">
-   <editor metric="0" gridmajor="2540000" mode="00000000" zoom="0" scale="88" flipped="0" gridminor="254000" gridmode="32" snapidx="2" snap="254000" xcursor="0" orgmode="0" snaprange="144318">
+   <editor metric="0" gridmajor="2540000" mode="00000001" zoom="0" scale="88" flipped="0" gridminor="254000" gridmode="32" snapidx="2" snap="254000" xcursor="0" orgmode="0" snaprange="144318">
     <world y1="-12700000" x1="-11430000" y2="12700000" x2="11430000"/>
     <centre x="0" y="0"/>
     <origin x="0" y="0"/>
@@ -18,7 +18,7 @@
   </editor>
  </MODULE>
  <MODULE name="ISIS">
-  <editor metric="0" gridmajor="2540000" mode="00000000" zoom="0" scale="88" flipped="0" gridminor="254000" gridmode="32" snapidx="2" snap="254000" xcursor="0" orgmode="0" snaprange="144318">
+  <editor metric="0" gridmajor="2540000" mode="00000001" zoom="0" scale="88" flipped="0" gridminor="254000" gridmode="32" snapidx="2" snap="254000" xcursor="0" orgmode="0" snaprange="144318">
    <world y1="-12700000" x1="-11430000" y2="12700000" x2="11430000"/>
    <centre x="0" y="0"/>
    <origin x="0" y="0"/>
@@ -52,7 +52,7 @@
      <ITEM name="nItems">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="1384" x="198" flags="00000000" y="209" h="877" pid="0" iid="14">
+   <POPUP w="1384" x="431" flags="00000000" y="155" h="877" pid="0" iid="14">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="30" x="98" flags="00000008" y="189" h="16" pid="3" iid="6">
