@@ -76,13 +76,13 @@ typedef double float64;          /* Typically 8 bytes, used for high-precision d
  * to be used.
  *----------------------------------------------------------------------------*/
 
-typedef volatile unsigned char vuint8;    /* Volatile unsigned 8-bit integer */
-typedef volatile signed char vsint8;      /* Volatile signed 8-bit integer */
-typedef volatile unsigned short vuint16;  /* Volatile unsigned 16-bit integer */
-typedef volatile signed short vsint16;    /* Volatile signed 16-bit integer */
-typedef volatile unsigned long vuint32;   /* Volatile unsigned 32-bit integer */
-typedef volatile signed long vsint32;     /* Volatile signed 32-bit integer */
+typedef volatile unsigned char vuint8;       /* Volatile unsigned 8-bit integer  */
+typedef volatile signed char vsint8;         /* Volatile signed 8-bit integer    */
+typedef volatile unsigned short vuint16;     /* Volatile unsigned 16-bit integer */
+typedef volatile signed short vsint16;       /* Volatile signed 16-bit integer   */
+typedef volatile unsigned long vuint32;      /* Volatile unsigned 32-bit integer */
+typedef volatile signed long vsint32;        /* Volatile signed 32-bit integer   */
 typedef volatile unsigned long long vuint64; /* Volatile unsigned 64-bit integer */
-typedef volatile signed long long vsint64;   /* Volatile signed 64-bit integer */
+typedef volatile signed long long vsint64;   /* Volatile signed 64-bit integer   */
 
 #endif
