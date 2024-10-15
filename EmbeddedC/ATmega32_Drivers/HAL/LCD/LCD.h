@@ -10,7 +10,7 @@
 
 #include "../../MCAL/std_types.h"
 
-#define LCD_DATA_BITS_MODE 8
+#define LCD_DATA_BITS_MODE 4
 
 #if((LCD_DATA_BITS_MODE != 4) && (LCD_DATA_BITS_MODE != 8))
 
@@ -18,13 +18,13 @@
 
 #endif
 
-#define LCD_RS_PORT PORTD_ID
-#define LCD_RS_Pin PIN0_ID
+#define LCD_RS_PORT PORTA_ID
+#define LCD_RS_Pin PIN1_ID
 
-#define LCD_ENABLE_PORT PORTD_ID
-#define LCD_ENABLE_PIN PIN1_ID
+#define LCD_ENABLE_PORT PORTA_ID
+#define LCD_ENABLE_PIN PIN2_ID
 
-#define LCD_DATA_PORT PORTC_ID
+#define LCD_DATA_PORT PORTA_ID
 
 #if (LCD_DATA_BITS_MODE == 4)
 

@@ -12,7 +12,7 @@
 #include "../../MCAL/GPIO/gpio.h"
 
 /* Initialize the buzzer object with default values */
-BUZZER Alarm = { .PORT = PORTD_ID, .PIN = PIN3_ID, .state = BUZZER_ACTIVE_HIGH };
+BUZZER Alarm = { .PORT = PORTC_ID, .PIN = PIN5_ID, .state = BUZZER_ACTIVE_HIGH };
 
 /* Set the buzzer pin as output */
 void Buzzer_init(BUZZER *buzz) {

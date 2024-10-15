@@ -13,9 +13,9 @@
 /*
  * Define LEDS Parameters
  */
-LED_ID Green = { .LED_PORT = PORTB_ID, .LED_PIN = PIN6_ID, ACTIVE_HIGH };
-LED_ID Blue = { .LED_PORT = PORTB_ID, .LED_PIN = PIN7_ID, ACTIVE_HIGH };
-LED_ID Red = { .LED_PORT = PORTB_ID, .LED_PIN = PIN5_ID, ACTIVE_HIGH };
+LED_ID Green = { .LED_PORT = PORTC_ID, .LED_PIN = PIN0_ID, ACTIVE_HIGH };
+LED_ID Blue = { .LED_PORT = PORTC_ID, .LED_PIN = PIN1_ID, ACTIVE_HIGH };
+LED_ID Red = { .LED_PORT = PORTC_ID, .LED_PIN = PIN2_ID, ACTIVE_HIGH };
 
 /*
  * Function to initialize the LED
